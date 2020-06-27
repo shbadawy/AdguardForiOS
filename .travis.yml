@@ -1,9 +1,13 @@
+stages:
+  - compile
+  - test
+  - deploy
+
 jobs:
   include:
     - os: osx
       osx_image: xcode12
       
-  - stage: test
-      script: 
-        - echo "Hello world"
+  - stage: compile
+      script: echo "Hello world"
 
