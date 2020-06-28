@@ -15,16 +15,16 @@ jobs:
   - stage: build 
     name: build
     script: 
-      - xcode-select --install
+      - xcode --version
       - xcodebuild clean -project AdguardExtension/Adguard.xcodeproj -scheme SchemeName | xcpretty
       - xcodebuild build -workspace AdguardSafariExtension-iOS.xcworkspace -scheme bookshop_dev_scheme
   
-  - stage: test
+  - .stage: test
     name: test
     script:
       - xcodebuild test -project AdguardExtension/Adguard.xcodeproj -scheme AdguardExtension/Adguard.xcodeproj/xcshareddata/xcschemes -destination 'platform=iOS Simulator,name=iPhone 6s,OS=9.2' | xcpretty -s
       
-  - stage: release 
+  - .stage: release 
     name: release
     script:
       - xcodebuild clean archive -archivePath build/ProjectName -scheme AdguardExtension/Adguard.xcodeproj/xcshareddata/xcschemes
