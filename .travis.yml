@@ -5,8 +5,8 @@ xcode_destination: platform=iOS Simulator,OS=10.1,name=iPad Pro (9.7-inch)
 
 stages:
   - build
-  - test
-  - release
+  #- test
+  #- release
 
 os: osx
 osx_image: xcode12
@@ -19,16 +19,16 @@ jobs:
       #- xcodebuild clean -project AdguardExtension/Adguard.xcodeproj -scheme SchemeName | xcpretty
       #- xcodebuild build -workspace AdguardSafariExtension-iOS.xcworkspace -scheme bookshop_dev_scheme
   
-  - .stage: test
-    name: test
-    script:
-      - xcodebuild test -project AdguardExtension/Adguard.xcodeproj -scheme AdguardExtension/Adguard.xcodeproj/xcshareddata/xcschemes -destination 'platform=iOS Simulator,name=iPhone 6s,OS=9.2' | xcpretty -s
+  #- stage: test
+  #  name: test
+  #  script:
+  #    - xcodebuild test -project AdguardExtension/Adguard.xcodeproj -scheme AdguardExtension/Adguard.xcodeproj/xcshareddata/xcschemes -destination 'platform=iOS Simulator,name=iPhone 6s,OS=9.2' | xcpretty -s
       
-  - .stage: release 
-    name: release
-    script:
-      - xcodebuild clean archive -archivePath build/ProjectName -scheme AdguardExtension/Adguard.xcodeproj/xcshareddata/xcschemes
-      - xcodebuild -exportArchive -exportFormat ipa -archivePath "build/AdguardExtension.xcarchive" -exportPath "build/AdguardExtension.ipa" -exportProvisioningProfile "ProvisioningProfileName"
-    artifacts:
-      paths:
-      - build/ProjectName.ipa
+  #- .stage: release 
+  #  name: release
+  #  script:
+  #    - xcodebuild clean archive -archivePath build/ProjectName -scheme AdguardExtension/Adguard.xcodeproj/xcshareddata/xcschemes
+  #    - xcodebuild -exportArchive -exportFormat ipa -archivePath "build/AdguardExtension.xcarchive" -exportPath "build/AdguardExtension.ipa" -exportProvisioningProfile "ProvisioningProfileName"
+  #  artifacts:
+  #    paths:
+  #    - build/ProjectName.ipa
