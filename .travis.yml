@@ -16,8 +16,8 @@ jobs:
     name: build
     script: 
       - xcode --version
-      - xcodebuild clean -project AdguardExtension/Adguard.xcodeproj -scheme SchemeName | xcpretty
-      - xcodebuild build -workspace AdguardSafariExtension-iOS.xcworkspace -scheme bookshop_dev_scheme
+      #- xcodebuild clean -project AdguardExtension/Adguard.xcodeproj -scheme SchemeName | xcpretty
+      #- xcodebuild build -workspace AdguardSafariExtension-iOS.xcworkspace -scheme bookshop_dev_scheme
   
   - .stage: test
     name: test
